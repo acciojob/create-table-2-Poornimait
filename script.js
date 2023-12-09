@@ -1,14 +1,19 @@
 function createTable() {
-    //Write your code here
-	let rows=parseInt(prompt("Input number of rows"));
-	let columns=parseInt(prompt("Input number of columns"));
-    let table=document.getElementById("myTable");
-	table.innerHTML = '';
-	for (let i = 0; i < rows; i++) {
-    let row = table.insertRow();
-    for (let j = 0; j < columns; j++) {
-      let cell = row.insertCell();
-      cell.textContent = `Row-${i} Column-${j}`;
-    }
-  }
+	var rows = prompt("Input number of rows");
+	var cols = prompt("Input number of columns");
+	var table = document.getElementById('myTable');
+	var tbody = document.createElement("tbody");
+	for (var i = 0; i < rows; i++){
+		var row = document.createElement("tr");
+		for (var j = 0; j < cols; j++){
+			var cell = document.createElement("td");
+			var input = document.createElement("input");
+	        input.type = "text";
+            input.placeholder = "Row-" + i + " Column-" + j;
+	        cell.appendChild(input);
+			row.appendChild(cell);
+		}
+		tbody.appendChild(row);
+	}
+	table.appendChild(tbody);
 }
